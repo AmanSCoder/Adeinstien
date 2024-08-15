@@ -3,6 +3,11 @@ import pickle
 
 import content_based_recommendation
 
+import warnings
+
+# Suppress all warnings
+warnings.filterwarnings('ignore')
+
 # Load the model and vectorizer
 with open('model/reinforcement_model/kmeans_model.pkl', 'rb') as f:
     model = pickle.load(f)
