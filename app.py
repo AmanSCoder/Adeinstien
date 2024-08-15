@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
 import pickle
 
+import content_based_recommendation
+
 # Load the model and vectorizer
-with open('kmeans_model.pkl', 'rb') as f:
+with open('model\\reinforcement_model\\kmeans_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-with open('tfidf_vectorizer.pkl', 'rb') as f:
+with open('model\\reinforcement_model\\tfidf_vectorizer.pkl', 'rb') as f:
     vectorizer = pickle.load(f)
 
 app = Flask(__name__)
@@ -31,19 +33,14 @@ def reinforcement_model():
         'recommendations': recommendations
     })
 
-def content_based_recommendations(desc):
-    
 
-    return "soap"
-
-@app.route('/recommend/content_based_model',method=['POST'])
+@app.route('/recommend/content_based_model',methods=['POST'])
 def content_based_model():
-    data=request.get_json()
-    product_description=data['product_description']
-    recommendations=content_based_recommendations(product_description)
-    return jsonify({
-        'recommendations':recommendations
-    })
+    desc=request.get_json()
+    description = desc['description']
+    recommendations=content_based_recommendation.recommend_products(description)
+    return recommendations
+
 
 if __name__ == '__main__':
     app.run(debug=True)
