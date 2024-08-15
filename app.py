@@ -12,6 +12,11 @@ with open('model/reinforcement_model/tfidf_vectorizer.pkl', 'rb') as f:
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return 'Success', 200
+
+
 def print_cluster(i):
     terms = vectorizer.get_feature_names_out()
     order_centroids = model.cluster_centers_.argsort()[:, ::-1]
