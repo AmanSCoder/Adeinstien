@@ -8,15 +8,15 @@ import pickle
 import json
 
 # Load the TF-IDF vectorizer
-with open(r'model\content_based_model\tfidf_vectorizer.pkl', 'rb') as f:
+with open('model/content_based_model/tfidf_vectorizer.pkl', 'rb') as f:
     tfidf = pickle.load(f)
 
 # Load the TF-IDF matrix
-with open(r'model\content_based_model\tfidf_matrix.pkl', 'rb') as f:
+with open('model/content_based_model/tfidf_matrix.pkl', 'rb') as f:
     tfidf_matrix = pickle.load(f)
 
 # Load the DataFrame
-with open(r'model\content_based_model\product_data.pkl', 'rb') as f:
+with open('model/content_based_model/product_data.pkl', 'rb') as f:
     df = pickle.load(f)
 
 # Function to compute Jaccard similarity

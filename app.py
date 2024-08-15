@@ -4,10 +4,10 @@ import pickle
 import content_based_recommendation
 
 # Load the model and vectorizer
-with open(r'model\reinforcement_model\kmeans_model.pkl', 'rb') as f:
+with open('model/reinforcement_model/kmeans_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-with open(r'model\reinforcement_model\tfidf_vectorizer.pkl', 'rb') as f:
+with open('model/reinforcement_model/tfidf_vectorizer.pkl', 'rb') as f:
     vectorizer = pickle.load(f)
 
 app = Flask(__name__)
