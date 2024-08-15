@@ -12,7 +12,7 @@ with open('model/reinforcement_model/tfidf_vectorizer.pkl', 'rb') as f:
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/',methods=['GET'])
 def home():
     return 'Success', 200
 
